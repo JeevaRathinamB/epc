@@ -1,0 +1,1044 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Elite Power Corporations | Solar Energy Company</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap" rel="stylesheet">
+<style>
+:root {
+  --navy:    #0B1F3A;
+  --navy2:   #132d52;
+  --orange:  #E8920A;
+  --orange2: #f5a623;
+  --white:   #FFFFFF;
+  --off:     #F7F8FA;
+  --border:  #E2E8F0;
+  --text:    #1A2B40;
+  --muted:   #64748B;
+  --light:   #94A3B8;
+  --shadow:  0 2px 20px rgba(11,31,58,0.08);
+  --shadow2: 0 8px 40px rgba(11,31,58,0.12);
+}
+
+*, *::before, *::after { box-sizing: border-box; margin:0; padding:0; }
+html { scroll-behavior: smooth; font-size: 16px; }
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--white);
+  color: var(--text);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── TOPBAR ── */
+.topbar {
+  background: var(--navy);
+  padding: 9px 80px;
+  display: flex; justify-content: space-between; align-items: center;
+}
+.topbar-info { display: flex; gap: 28px; }
+.topbar-info a {
+  color: rgba(255,255,255,0.6); font-size: 12.5px; text-decoration: none;
+  display: flex; align-items: center; gap: 6px; letter-spacing: 0.2px;
+  transition: color .2s;
+}
+.topbar-info a:hover { color: var(--orange2); }
+.topbar-social { display: flex; gap: 14px; }
+.topbar-social a {
+  color: rgba(255,255,255,0.45); font-size: 12px; text-decoration: none;
+  transition: color .2s;
+}
+.topbar-social a:hover { color: var(--orange2); }
+
+/* ── NAV ── */
+nav {
+  position: sticky; top: 0; z-index: 200;
+  background: var(--white);
+  border-bottom: 1px solid var(--border);
+  padding: 0 80px;
+  display: flex; align-items: center; justify-content: space-between;
+  height: 76px;
+  box-shadow: var(--shadow);
+  transition: box-shadow .3s;
+}
+nav.scrolled { box-shadow: var(--shadow2); }
+.logo { display: flex; align-items: center; gap: 14px; text-decoration: none; }
+.logo-mark {
+  width: 46px; height: 46px; background: var(--navy);
+  border-radius: 10px; display: flex; align-items: center; justify-content: center;
+  position: relative; overflow: hidden;
+}
+.logo-mark::after {
+  content: '';
+  position: absolute; bottom: 0; right: 0;
+  width: 16px; height: 16px; background: var(--orange);
+  border-radius: 6px 0 0 0;
+}
+.logo-mark span {
+  font-family: 'DM Serif Display', serif;
+  font-size: 17px; color: white; position: relative; z-index: 1;
+}
+.logo-text-wrap { line-height: 1.15; }
+.logo-name {
+  font-family: 'DM Serif Display', serif;
+  font-size: 19px; color: var(--navy); letter-spacing: 0.3px;
+}
+.logo-name em { color: var(--orange); font-style: normal; }
+.logo-tagline {
+  font-size: 10px; letter-spacing: 2.5px; text-transform: uppercase;
+  color: var(--muted); font-weight: 500;
+}
+.nav-menu { display: flex; gap: 0; list-style: none; }
+.nav-menu li a {
+  display: block; padding: 0 22px; line-height: 76px;
+  font-size: 13.5px; font-weight: 500; letter-spacing: 0.3px;
+  color: var(--muted); text-decoration: none;
+  border-bottom: 3px solid transparent;
+  transition: color .2s, border-color .2s;
+}
+.nav-menu li a:hover { color: var(--navy); border-bottom-color: var(--orange); }
+.nav-menu li a.active { color: var(--navy); border-bottom-color: var(--orange); }
+.nav-right { display: flex; gap: 12px; align-items: center; }
+.btn-ghost {
+  padding: 9px 22px; border-radius: 7px;
+  border: 1.5px solid var(--border); background: transparent;
+  font-family: 'DM Sans', sans-serif; font-size: 13.5px; font-weight: 600;
+  color: var(--navy); cursor: pointer; transition: all .2s; text-decoration: none;
+}
+.btn-ghost:hover { border-color: var(--navy); background: var(--off); }
+.btn-solid {
+  padding: 10px 26px; border-radius: 7px;
+  background: var(--orange); border: none;
+  font-family: 'DM Sans', sans-serif; font-size: 13.5px; font-weight: 700;
+  color: var(--white); cursor: pointer; transition: all .2s; text-decoration: none;
+  display: inline-flex; align-items: center; gap: 7px;
+}
+.btn-solid:hover { background: #c97908; transform: translateY(-1px); box-shadow: 0 6px 20px rgba(232,146,10,0.3); }
+
+/* ── HERO ── */
+#hero {
+  background: var(--off);
+  min-height: calc(100vh - 116px);
+  display: grid; grid-template-columns: 1fr 1fr;
+  align-items: stretch;
+  overflow: hidden;
+}
+.hero-left {
+  padding: 90px 80px;
+  display: flex; flex-direction: column; justify-content: center;
+}
+.hero-eyebrow {
+  display: inline-flex; align-items: center; gap: 10px;
+  font-size: 11.5px; font-weight: 600; letter-spacing: 2.5px;
+  text-transform: uppercase; color: var(--orange);
+  margin-bottom: 28px;
+}
+.hero-eyebrow::before {
+  content: ''; width: 28px; height: 2px; background: var(--orange);
+}
+.hero-left h1 {
+  font-family: 'DM Serif Display', serif;
+  font-size: clamp(42px, 4.5vw, 64px);
+  line-height: 1.1; color: var(--navy);
+  margin-bottom: 24px;
+}
+.hero-left h1 em { color: var(--orange); font-style: normal; }
+.hero-left p {
+  font-size: 16.5px; line-height: 1.75; color: var(--muted);
+  max-width: 480px; margin-bottom: 44px;
+}
+.hero-cta { display: flex; gap: 14px; align-items: center; }
+.hero-cta .link-arrow {
+  font-size: 14px; font-weight: 600; color: var(--navy);
+  text-decoration: none; display: flex; align-items: center; gap: 6px;
+  transition: gap .2s;
+}
+.hero-cta .link-arrow:hover { gap: 10px; color: var(--orange); }
+.hero-stats-row {
+  display: flex; gap: 0; margin-top: 60px;
+  border-top: 1px solid var(--border); padding-top: 40px;
+}
+.hero-stat {
+  flex: 1; padding-right: 32px;
+  border-right: 1px solid var(--border);
+}
+.hero-stat:last-child { border-right: none; padding-right: 0; padding-left: 32px; }
+.hero-stat:nth-child(2) { padding-left: 32px; }
+.hero-stat-num {
+  font-family: 'DM Serif Display', serif;
+  font-size: 40px; color: var(--navy); line-height: 1;
+}
+.hero-stat-num span { color: var(--orange); }
+.hero-stat-label { font-size: 12px; color: var(--muted); margin-top: 5px; letter-spacing: 0.3px; }
+.hero-right {
+  background: var(--navy);
+  position: relative; overflow: hidden;
+  display: flex; align-items: center; justify-content: center;
+}
+.hero-right-bg {
+  position: absolute; inset: 0;
+  background:
+    linear-gradient(135deg, rgba(232,146,10,0.12) 0%, transparent 50%),
+    var(--navy);
+}
+.hero-right-pattern {
+  position: absolute; inset: 0;
+  background-image: repeating-linear-gradient(
+    45deg,
+    transparent,
+    transparent 30px,
+    rgba(255,255,255,0.015) 30px,
+    rgba(255,255,255,0.015) 31px
+  );
+}
+.hero-card-stack {
+  position: relative; z-index: 2;
+  width: 380px;
+}
+.hero-main-card {
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 20px; padding: 40px;
+  backdrop-filter: blur(10px);
+}
+.hero-main-card .sun-icon {
+  width: 72px; height: 72px; background: var(--orange);
+  border-radius: 16px; display: flex; align-items: center; justify-content: center;
+  font-size: 34px; margin-bottom: 28px;
+  box-shadow: 0 8px 32px rgba(232,146,10,0.4);
+}
+.hero-main-card h3 {
+  font-family: 'DM Serif Display', serif;
+  font-size: 26px; color: white; margin-bottom: 10px;
+}
+.hero-main-card p { font-size: 14px; color: rgba(255,255,255,0.5); line-height: 1.7; }
+.hero-floating-cards {
+  margin-top: 16px; display: flex; gap: 12px;
+}
+.h-card {
+  flex: 1; background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.1); border-radius: 14px; padding: 18px 16px;
+}
+.h-card-val {
+  font-family: 'DM Serif Display', serif;
+  font-size: 24px; color: var(--orange2);
+}
+.h-card-label { font-size: 11px; color: rgba(255,255,255,0.4); margin-top: 3px; }
+.hero-badge-pill {
+  position: absolute; top: -14px; right: -14px;
+  background: var(--orange); color: white;
+  font-size: 11px; font-weight: 700; letter-spacing: 1px;
+  padding: 8px 16px; border-radius: 20px; text-transform: uppercase;
+  box-shadow: 0 4px 16px rgba(232,146,10,0.4);
+}
+
+/* ── SHARED ── */
+.section-eyebrow {
+  display: inline-flex; align-items: center; gap: 10px;
+  font-size: 11.5px; font-weight: 600; letter-spacing: 2.5px;
+  text-transform: uppercase; color: var(--orange);
+  margin-bottom: 16px;
+}
+.section-eyebrow::before { content: ''; width: 22px; height: 2px; background: var(--orange); }
+h2.section-heading {
+  font-family: 'DM Serif Display', serif;
+  font-size: clamp(32px, 3.5vw, 50px);
+  color: var(--navy); line-height: 1.15; margin-bottom: 18px;
+}
+h2.section-heading em { color: var(--orange); font-style: normal; }
+.section-sub { font-size: 15.5px; color: var(--muted); line-height: 1.75; max-width: 560px; }
+.section-rule {
+  width: 50px; height: 3px; background: var(--orange);
+  margin: 20px 0 0; border-radius: 2px;
+}
+
+/* ── ABOUT ── */
+#about { padding: 110px 80px; background: var(--white); }
+.about-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 100px; align-items: center; }
+.about-content p {
+  font-size: 15.5px; color: var(--muted); line-height: 1.8; margin-bottom: 18px;
+}
+.about-pillars {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 36px;
+}
+.pillar {
+  border: 1px solid var(--border); border-radius: 12px; padding: 18px 20px;
+  transition: border-color .2s, box-shadow .2s;
+  position: relative; overflow: hidden;
+}
+.pillar::before {
+  content: '';
+  position: absolute; left: 0; top: 0; bottom: 0; width: 3px;
+  background: var(--orange); transform: scaleY(0); transition: transform .25s;
+  transform-origin: bottom;
+}
+.pillar:hover { border-color: rgba(232,146,10,0.25); box-shadow: var(--shadow); }
+.pillar:hover::before { transform: scaleY(1); }
+.pillar-icon { font-size: 22px; margin-bottom: 10px; }
+.pillar h4 { font-size: 14px; font-weight: 700; color: var(--navy); margin-bottom: 4px; }
+.pillar p { font-size: 12.5px; color: var(--muted); line-height: 1.5; }
+.about-visual {
+  position: relative;
+}
+.about-img-box {
+  width: 100%; aspect-ratio: 4/5;
+  background: linear-gradient(145deg, var(--navy) 0%, var(--navy2) 100%);
+  border-radius: 20px; overflow: hidden; position: relative;
+}
+.about-img-box-inner {
+  position: absolute; inset: 0;
+  background-image: repeating-linear-gradient(
+    0deg, transparent, transparent 40px,
+    rgba(255,255,255,0.02) 40px, rgba(255,255,255,0.02) 41px
+  ),
+  repeating-linear-gradient(
+    90deg, transparent, transparent 40px,
+    rgba(255,255,255,0.02) 40px, rgba(255,255,255,0.02) 41px
+  );
+  display: flex; align-items: center; justify-content: center; flex-direction: column; gap: 8px;
+}
+.about-sun {
+  width: 100px; height: 100px; border-radius: 50%; background: var(--orange);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 44px;
+  box-shadow: 0 0 0 20px rgba(232,146,10,0.08), 0 0 0 40px rgba(232,146,10,0.04);
+  animation: breathe 4s ease-in-out infinite;
+}
+@keyframes breathe {
+  0%,100% { box-shadow: 0 0 0 20px rgba(232,146,10,0.08), 0 0 0 40px rgba(232,146,10,0.04); }
+  50% { box-shadow: 0 0 0 30px rgba(232,146,10,0.1), 0 0 0 60px rgba(232,146,10,0.05); }
+}
+.about-img-label {
+  color: rgba(255,255,255,0.6); font-size: 13px; letter-spacing: 2px;
+  text-transform: uppercase; margin-top: 16px;
+}
+.floating-chip {
+  position: absolute;
+  background: var(--white); border-radius: 12px; padding: 12px 20px;
+  box-shadow: var(--shadow2); font-weight: 600; font-size: 13px; color: var(--navy);
+  display: flex; align-items: center; gap: 8px;
+}
+.floating-chip .dot { width: 8px; height: 8px; border-radius: 50%; background: #22c55e; }
+.chip-1 { bottom: 32px; left: -30px; }
+.chip-2 { top: 40px; right: -20px; }
+.chip-2 .dot { background: var(--orange); }
+
+/* ── SERVICES ── */
+#services { padding: 110px 80px; background: var(--off); }
+.services-top { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 60px; }
+.services-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 24px; }
+.svc-card {
+  background: var(--white); border: 1px solid var(--border);
+  border-radius: 16px; padding: 36px 28px 32px;
+  transition: all .3s; cursor: default; position: relative; overflow: hidden;
+}
+.svc-card::after {
+  content: '';
+  position: absolute; bottom: 0; left: 0; right: 0; height: 4px;
+  background: linear-gradient(90deg, var(--orange), var(--orange2));
+  transform: scaleX(0); transition: transform .3s; transform-origin: left;
+}
+.svc-card:hover { box-shadow: var(--shadow2); transform: translateY(-6px); border-color: transparent; }
+.svc-card:hover::after { transform: scaleX(1); }
+.svc-num {
+  font-family: 'DM Serif Display', serif;
+  font-size: 13px; color: var(--light); letter-spacing: 1px; margin-bottom: 20px;
+}
+.svc-icon-box {
+  width: 60px; height: 60px; border-radius: 14px; margin-bottom: 24px;
+  display: flex; align-items: center; justify-content: center; font-size: 26px;
+}
+.svc-icon-box.a { background: #FEF3C7; }
+.svc-icon-box.b { background: #DBEAFE; }
+.svc-icon-box.c { background: #FCE7F3; }
+.svc-icon-box.d { background: #D1FAE5; }
+.svc-card h3 {
+  font-family: 'DM Serif Display', serif;
+  font-size: 20px; color: var(--navy); margin-bottom: 10px;
+}
+.svc-card p { font-size: 13.5px; color: var(--muted); line-height: 1.65; margin-bottom: 20px; }
+.svc-tag {
+  display: inline-block; font-size: 10.5px; font-weight: 700;
+  letter-spacing: 1.5px; text-transform: uppercase;
+  color: var(--orange); border: 1px solid rgba(232,146,10,0.3);
+  padding: 4px 12px; border-radius: 20px;
+}
+
+/* ── PROJECTS ── */
+#projects { padding: 110px 80px; background: var(--white); }
+.projects-top { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 50px; }
+.filters { display: flex; gap: 8px; }
+.flt {
+  padding: 8px 20px; border-radius: 6px; cursor: pointer;
+  font-size: 13px; font-weight: 600; letter-spacing: 0.3px;
+  border: 1.5px solid var(--border); background: var(--white);
+  color: var(--muted); transition: all .2s;
+}
+.flt:hover, .flt.active { background: var(--navy); color: var(--white); border-color: var(--navy); }
+.projects-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 28px; }
+.proj-card {
+  border: 1px solid var(--border); border-radius: 16px; overflow: hidden;
+  transition: box-shadow .3s, transform .3s; background: var(--white);
+}
+.proj-card:hover { box-shadow: var(--shadow2); transform: translateY(-4px); }
+.proj-thumb {
+  height: 200px;
+  background: linear-gradient(135deg, var(--navy) 0%, var(--navy2) 100%);
+  position: relative; display: flex; align-items: center; justify-content: center;
+  overflow: hidden;
+}
+.proj-thumb-pattern {
+  position: absolute; inset: 0;
+  background-image: repeating-linear-gradient(
+    45deg, transparent, transparent 20px,
+    rgba(255,255,255,0.02) 20px, rgba(255,255,255,0.02) 21px
+  );
+}
+.proj-thumb-icon { font-size: 48px; position: relative; z-index: 1; }
+.proj-cap {
+  position: absolute; top: 16px; right: 16px;
+  background: var(--orange); color: white;
+  font-family: 'DM Serif Display', serif;
+  font-size: 15px; padding: 5px 14px; border-radius: 6px; z-index: 2;
+  box-shadow: 0 4px 12px rgba(232,146,10,0.35);
+}
+.proj-body { padding: 22px 24px; }
+.proj-body h4 {
+  font-family: 'DM Serif Display', serif;
+  font-size: 19px; color: var(--navy); margin-bottom: 6px;
+}
+.proj-body p { font-size: 13px; color: var(--muted); margin-bottom: 14px; }
+.proj-tags { display: flex; gap: 8px; flex-wrap: wrap; }
+.ptag {
+  font-size: 11px; font-weight: 600; letter-spacing: 0.5px;
+  padding: 3px 10px; border-radius: 4px;
+  background: var(--off); color: var(--muted); border: 1px solid var(--border);
+}
+
+/* ── MAINTENANCE ── */
+#maintenance { padding: 110px 80px; background: var(--navy); }
+#maintenance .section-eyebrow { color: var(--orange2); }
+#maintenance .section-eyebrow::before { background: var(--orange2); }
+#maintenance h2.section-heading { color: var(--white); }
+#maintenance .section-sub { color: rgba(255,255,255,0.55); }
+.maint-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; margin-top: 70px; align-items: start; }
+.maint-services { display: flex; flex-direction: column; gap: 16px; }
+.maint-row {
+  display: flex; align-items: center; gap: 20px;
+  background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 14px; padding: 20px 24px; transition: all .25s;
+}
+.maint-row:hover { background: rgba(255,255,255,0.08); border-color: rgba(232,146,10,0.3); }
+.maint-icon {
+  width: 50px; height: 50px; background: rgba(232,146,10,0.15);
+  border-radius: 12px; display: flex; align-items: center; justify-content: center;
+  font-size: 22px; flex-shrink: 0;
+}
+.maint-row h4 {
+  font-weight: 700; font-size: 15px; color: var(--white); margin-bottom: 3px;
+}
+.maint-row p { font-size: 13px; color: rgba(255,255,255,0.45); }
+.maint-benefits { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.ben-card {
+  background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 14px; padding: 28px 24px; text-align: center; transition: all .25s;
+}
+.ben-card:hover { background: rgba(232,146,10,0.06); border-color: rgba(232,146,10,0.25); }
+.ben-icon { font-size: 30px; margin-bottom: 14px; }
+.ben-card h4 { font-weight: 700; font-size: 14px; color: var(--white); margin-bottom: 6px; }
+.ben-card p { font-size: 12.5px; color: rgba(255,255,255,0.4); line-height: 1.55; }
+
+/* ── VALUES ── */
+#values { padding: 110px 80px; background: var(--off); }
+.values-inner { display: grid; grid-template-columns: 1fr 2fr; gap: 80px; align-items: start; }
+.values-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; }
+.val-card {
+  background: var(--white); border: 1px solid var(--border);
+  border-radius: 16px; padding: 32px 24px; text-align: center; transition: all .3s;
+}
+.val-card:hover { border-color: var(--orange); box-shadow: var(--shadow); transform: translateY(-3px); }
+.val-icon { font-size: 36px; margin-bottom: 14px; }
+.val-card h3 {
+  font-family: 'DM Serif Display', serif;
+  font-size: 16px; color: var(--navy); margin-bottom: 8px;
+}
+.val-card p { font-size: 12.5px; color: var(--muted); line-height: 1.55; }
+.val-cta-box {
+  margin-top: 28px; background: var(--navy); border-radius: 16px;
+  padding: 32px; color: white;
+}
+.val-cta-box h3 {
+  font-family: 'DM Serif Display', serif;
+  font-size: 22px; margin-bottom: 10px;
+}
+.val-cta-box p { font-size: 13.5px; color: rgba(255,255,255,0.55); line-height: 1.65; margin-bottom: 22px; }
+
+/* ── BRANDS ── */
+#brands { padding: 90px 80px; background: var(--white); border-top: 1px solid var(--border); }
+.brands-top { text-align: center; margin-bottom: 56px; }
+.brands-top .section-eyebrow { justify-content: center; }
+.brands-top .section-eyebrow::before { display: none; }
+.brands-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 18px; }
+.brand-row {
+  display: flex; align-items: center; gap: 16px;
+  border: 1px solid var(--border); border-radius: 12px; padding: 18px 22px;
+  transition: all .2s; background: var(--white);
+}
+.brand-row:hover { border-color: var(--orange); box-shadow: var(--shadow); }
+.brand-bar {
+  width: 4px; height: 40px; background: var(--orange);
+  border-radius: 2px; flex-shrink: 0;
+}
+.brand-row strong { display: block; font-size: 15px; color: var(--navy); font-weight: 700; }
+.brand-row span { font-size: 12.5px; color: var(--muted); }
+
+/* ── CONTACT ── */
+#contact { padding: 110px 80px; background: var(--off); }
+.contact-inner { display: grid; grid-template-columns: 1fr 1.1fr; gap: 80px; }
+.contact-items { display: flex; flex-direction: column; gap: 28px; margin-top: 42px; }
+.citem { display: flex; gap: 18px; align-items: flex-start; }
+.citem-icon {
+  width: 48px; height: 48px; background: rgba(232,146,10,0.1);
+  border-radius: 12px; display: flex; align-items: center; justify-content: center;
+  font-size: 20px; flex-shrink: 0;
+}
+.citem h5 {
+  font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase;
+  color: var(--orange); margin-bottom: 5px;
+}
+.citem p { font-size: 14px; color: var(--muted); line-height: 1.65; }
+.branch-pills { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 8px; }
+.branch-pill {
+  font-size: 12px; font-weight: 600; padding: 5px 14px; border-radius: 20px;
+  background: var(--navy); color: white;
+}
+.contact-form {
+  background: var(--white); border-radius: 20px; padding: 44px;
+  border: 1px solid var(--border); box-shadow: var(--shadow);
+}
+.contact-form h3 {
+  font-family: 'DM Serif Display', serif;
+  font-size: 28px; color: var(--navy); margin-bottom: 8px;
+}
+.contact-form .form-sub { font-size: 14px; color: var(--muted); margin-bottom: 32px; }
+.fg { margin-bottom: 18px; }
+.fg label {
+  display: block; font-size: 11.5px; font-weight: 700;
+  letter-spacing: 1.5px; text-transform: uppercase; color: var(--muted); margin-bottom: 7px;
+}
+.fg input, .fg textarea, .fg select {
+  width: 100%; border: 1.5px solid var(--border); border-radius: 9px;
+  padding: 11px 15px; font-family: 'DM Sans', sans-serif; font-size: 14.5px;
+  color: var(--text); background: var(--white); outline: none; transition: border-color .2s;
+}
+.fg input:focus, .fg textarea:focus, .fg select:focus { border-color: var(--orange); }
+.fg input::placeholder, .fg textarea::placeholder { color: var(--light); }
+.fg textarea { height: 100px; resize: none; }
+.fg select { color: var(--muted); }
+.fg-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+
+/* ── FOOTER ── */
+footer {
+  background: var(--navy); padding: 50px 80px 36px;
+}
+.footer-top {
+  display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px;
+  padding-bottom: 40px; border-bottom: 1px solid rgba(255,255,255,0.08);
+  margin-bottom: 32px;
+}
+.footer-brand .f-logo {
+  font-family: 'DM Serif Display', serif; font-size: 22px; color: white; margin-bottom: 10px;
+}
+.footer-brand .f-logo em { color: var(--orange2); font-style: normal; }
+.footer-brand p { font-size: 13px; color: rgba(255,255,255,0.4); line-height: 1.7; max-width: 260px; }
+.footer-sub-brands { display: flex; gap: 10px; margin-top: 18px; }
+.f-sub {
+  font-size: 11px; font-weight: 700; letter-spacing: 1px; padding: 5px 13px;
+  border-radius: 5px; border: 1px solid rgba(255,255,255,0.12); color: rgba(255,255,255,0.5);
+}
+.f-sub b { color: var(--orange2); }
+.footer-col h5 {
+  font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase;
+  color: rgba(255,255,255,0.4); margin-bottom: 18px;
+}
+.footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+.footer-col ul li a {
+  font-size: 13.5px; color: rgba(255,255,255,0.55); text-decoration: none; transition: color .2s;
+}
+.footer-col ul li a:hover { color: var(--orange2); }
+.footer-bottom {
+  display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;
+}
+.footer-bottom p { font-size: 12.5px; color: rgba(255,255,255,0.3); }
+.footer-bottom a { font-size: 13px; color: var(--orange2); text-decoration: none; }
+.footer-bottom a:hover { text-decoration: underline; }
+
+/* ── REVEAL ── */
+.reveal { opacity: 0; transform: translateY(28px); transition: opacity .65s ease, transform .65s ease; }
+.reveal.in { opacity: 1; transform: translateY(0); }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 1100px) {
+  nav, .topbar, section, #hero .hero-left { padding-left: 32px; padding-right: 32px; }
+  #hero { grid-template-columns: 1fr; }
+  .hero-right { min-height: 360px; }
+  .about-inner, .maint-grid, .values-inner, .contact-inner { grid-template-columns: 1fr; gap: 48px; }
+  .services-grid, .values-grid { grid-template-columns: 1fr 1fr; }
+  .projects-grid { grid-template-columns: 1fr 1fr; }
+  .brands-grid { grid-template-columns: 1fr 1fr; }
+  .footer-top { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 700px) {
+  .services-grid, .projects-grid, .values-grid, .maint-benefits, .brands-grid, .fg-row { grid-template-columns: 1fr; }
+  .nav-menu, .topbar-social { display: none; }
+  .hero-stats-row { flex-direction: column; gap: 16px; }
+  footer, #contact, #brands, #values, #maintenance, #projects, #services, #about { padding-left: 24px; padding-right: 24px; }
+}
+</style>
+</head>
+<body>
+
+<!-- TOP BAR -->
+<div class="topbar">
+  <div class="topbar-info">
+    <a href="tel:9384441279">📞 938 444 1279</a>
+    <a href="mailto:sales@elitepower.in">✉ sales@elitepower.in</a>
+    <a href="https://www.elitepower.in" target="_blank">🌐 www.elitepower.in</a>
+  </div>
+  <div class="topbar-social">
+    <a href="#">Facebook</a>
+    <a href="#">Instagram</a>
+    <a href="#">LinkedIn</a>
+    <a href="#">X</a>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav id="main-nav">
+  <a href="#" class="logo">
+    <div class="logo-mark"><span>EP</span></div>
+    <div class="logo-text-wrap">
+      <div class="logo-name">ep<em>|</em>Elite</div>
+      <div class="logo-tagline">Solar Energy Company</div>
+    </div>
+  </a>
+  <ul class="nav-menu">
+    <li><a href="#about" class="active">About</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#maintenance">E-CareX</a></li>
+    <li><a href="#brands">Partners</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <div class="nav-right">
+    <a href="tel:9384441279" class="btn-ghost">Call Us</a>
+    <a href="#contact" class="btn-solid">Get Free Quote →</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-left">
+    <div class="hero-eyebrow">10+ Years of Solar Excellence</div>
+    <h1>India's Trusted<br><em>Solar Energy</em><br>Partner</h1>
+    <p>Elite Power Corporations delivers high-performance solar EPC, maintenance, and retail services — combining advanced engineering, quality materials, and customer-first service across Tamil Nadu.</p>
+    <div class="hero-cta">
+      <a href="#contact" class="btn-solid">Request a Consultation →</a>
+      <a href="#projects" class="link-arrow">View Projects <span>→</span></a>
+    </div>
+    <div class="hero-stats-row">
+      <div class="hero-stat">
+        <div class="hero-stat-num">10<span>+</span></div>
+        <div class="hero-stat-label">Years of Industry Experience</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-num">25<span>MW</span></div>
+        <div class="hero-stat-label">Max Project Capacity</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-num">4<span>+</span></div>
+        <div class="hero-stat-label">City Branches</div>
+      </div>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-right-bg"></div>
+    <div class="hero-right-pattern"></div>
+    <div class="hero-card-stack">
+      <div style="position:relative;">
+        <div class="hero-badge-pill">JNNSM Certified</div>
+        <div class="hero-main-card">
+          <div class="sun-icon">☀️</div>
+          <h3>Solar Power<br>Solutions</h3>
+          <p>From 1 MW grid-scale plants to rooftop captive systems — we engineer, build, and maintain it all.</p>
+        </div>
+      </div>
+      <div class="hero-floating-cards">
+        <div class="h-card">
+          <div class="h-card-val">EPC</div>
+          <div class="h-card-label">Engineering & Build</div>
+        </div>
+        <div class="h-card">
+          <div class="h-card-val">AMC</div>
+          <div class="h-card-label">Annual Maintenance</div>
+        </div>
+        <div class="h-card">
+          <div class="h-card-val">Retail</div>
+          <div class="h-card-label">Modules & Inverters</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="about-inner">
+    <div class="about-content reveal">
+      <div class="section-eyebrow">Who We Are</div>
+      <h2 class="section-heading">A Decade of<br><em>Powering Industries</em></h2>
+      <div class="section-rule"></div>
+      <p style="margin-top:28px;">Elite Power Corporations is a leading renewable energy solutions provider specialising in <strong>EPC, AMC, and Solar Retail Services</strong>. With over 10 years of industry expertise, we deliver high-performance solar systems built for long-term efficiency, reliability, and cost savings.</p>
+      <p>Our approach combines advanced engineering, quality materials, and customer-focused service to deliver sustainable energy for residential, commercial, and industrial clients across Tamil Nadu.</p>
+      <div class="about-pillars">
+        <div class="pillar">
+          <div class="pillar-icon">⚡</div>
+          <h4>N-Type Technology</h4>
+          <p>Advanced modules for maximum efficiency</p>
+        </div>
+        <div class="pillar">
+          <div class="pillar-icon">🔧</div>
+          <h4>Expert Technical Team</h4>
+          <p>In-house design & installation engineers</p>
+        </div>
+        <div class="pillar">
+          <div class="pillar-icon">🌿</div>
+          <h4>Complete Ecosystem</h4>
+          <p>End-to-end solar from land to asset management</p>
+        </div>
+        <div class="pillar">
+          <div class="pillar-icon">💬</div>
+          <h4>Transparent Pricing</h4>
+          <p>Obligation-free quotes, no hidden costs</p>
+        </div>
+      </div>
+    </div>
+    <div class="about-visual reveal">
+      <div class="about-img-box">
+        <div class="about-img-box-inner">
+          <div class="about-sun">☀️</div>
+          <div class="about-img-label">Elite Power Corporations</div>
+        </div>
+      </div>
+      <div class="floating-chip chip-1">
+        <div class="dot"></div> Proven Performance
+      </div>
+      <div class="floating-chip chip-2">
+        <div class="dot"></div> 10+ Years Active
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="services-top reveal">
+    <div>
+      <div class="section-eyebrow">What We Do</div>
+      <h2 class="section-heading">Our Core <em>Services</em></h2>
+    </div>
+    <a href="#contact" class="btn-solid">Get a Quote →</a>
+  </div>
+  <div class="services-grid">
+    <div class="svc-card reveal">
+      <div class="svc-num">01</div>
+      <div class="svc-icon-box a">⚙️</div>
+      <h3>Solar EPC</h3>
+      <p>Complete Design, Engineering & Installation. We handle large-scale grid-connected projects from 1MW to 25MW under JNNSM and state policies.</p>
+      <span class="svc-tag">E-GenX</span>
+    </div>
+    <div class="svc-card reveal">
+      <div class="svc-num">02</div>
+      <div class="svc-icon-box b">🔌</div>
+      <h3>Solar AMC</h3>
+      <p>Dedicated Annual Maintenance Contracts for solar systems and inverters ensuring continuous peak performance and preventing major failures.</p>
+      <span class="svc-tag">E-CareX</span>
+    </div>
+    <div class="svc-card reveal">
+      <div class="svc-num">03</div>
+      <div class="svc-icon-box c">🏪</div>
+      <h3>Solar Retail</h3>
+      <p>Premium Solar Modules, Inverters & Accessories. Trusted brands like Goldi, Solis, and SolarEdge available through our retail network.</p>
+      <span class="svc-tag">E-StoreX</span>
+    </div>
+    <div class="svc-card reveal">
+      <div class="svc-num">04</div>
+      <div class="svc-icon-box d">🎯</div>
+      <h3>Custom Solar</h3>
+      <p>Tailored Energy Optimization & System Upgrades. Captive plants for hospitals, factories, mills, and educational institutions.</p>
+      <span class="svc-tag">Custom</span>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="projects-top reveal">
+    <div>
+      <div class="section-eyebrow">E-GenX Portfolio</div>
+      <h2 class="section-heading">Featured <em>Projects</em></h2>
+    </div>
+    <div class="filters">
+      <button class="flt active" onclick="setFilter(this)">All</button>
+      <button class="flt" onclick="setFilter(this)">Palladam</button>
+      <button class="flt" onclick="setFilter(this)">Coimbatore</button>
+      <button class="flt" onclick="setFilter(this)">Dindigul</button>
+    </div>
+  </div>
+  <div class="projects-grid">
+    <div class="proj-card reveal">
+      <div class="proj-thumb"><div class="proj-thumb-pattern"></div><div class="proj-thumb-icon">🏭</div><div class="proj-cap">2 MW</div></div>
+      <div class="proj-body"><h4>Industrial Rooftop Plant</h4><p>Large-scale rooftop solar installation for textile industry</p><div class="proj-tags"><span class="ptag">📍 Palladam</span><span class="ptag">Rooftop</span><span class="ptag">Grid-tied</span></div></div>
+    </div>
+    <div class="proj-card reveal">
+      <div class="proj-thumb"><div class="proj-thumb-pattern"></div><div class="proj-thumb-icon">🏗️</div><div class="proj-cap">1.5 MW</div></div>
+      <div class="proj-body"><h4>Commercial Complex</h4><p>High-capacity rooftop solar for industrial complex</p><div class="proj-tags"><span class="ptag">📍 Coimbatore</span><span class="ptag">Rooftop</span><span class="ptag">Captive</span></div></div>
+    </div>
+    <div class="proj-card reveal">
+      <div class="proj-thumb"><div class="proj-thumb-pattern"></div><div class="proj-thumb-icon">⚡</div><div class="proj-cap">1.67 MW</div></div>
+      <div class="proj-body"><h4>Factory Solar Farm</h4><p>Grid-connected captive solar system for manufacturing unit</p><div class="proj-tags"><span class="ptag">📍 Palladam</span><span class="ptag">Ground</span><span class="ptag">Captive</span></div></div>
+    </div>
+    <div class="proj-card reveal">
+      <div class="proj-thumb"><div class="proj-thumb-pattern"></div><div class="proj-thumb-icon">🌞</div><div class="proj-cap">1.26 MW</div></div>
+      <div class="proj-body"><h4>Industrial Solar Plant</h4><p>Dual rooftop installation for large-scale industrial client</p><div class="proj-tags"><span class="ptag">📍 Dindigul</span><span class="ptag">Rooftop</span><span class="ptag">Grid-tied</span></div></div>
+    </div>
+    <div class="proj-card reveal">
+      <div class="proj-thumb"><div class="proj-thumb-pattern"></div><div class="proj-thumb-icon">🏢</div><div class="proj-cap">990 KW</div></div>
+      <div class="proj-body"><h4>Mill Rooftop System</h4><p>Sub-megawatt solar installation for textile mill complex</p><div class="proj-tags"><span class="ptag">📍 Palladam</span><span class="ptag">Rooftop</span><span class="ptag">Grid-tied</span></div></div>
+    </div>
+    <div class="proj-card reveal">
+      <div class="proj-thumb"><div class="proj-thumb-pattern"></div><div class="proj-thumb-icon">🏭</div><div class="proj-cap">650 KW</div></div>
+      <div class="proj-body"><h4>Commercial Rooftop</h4><p>Multiple 650 KW commercial projects completed</p><div class="proj-tags"><span class="ptag">📍 Coimbatore</span><span class="ptag">Rooftop</span><span class="ptag">Captive</span></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- E-CAREX -->
+<section id="maintenance">
+  <div class="reveal">
+    <div class="section-eyebrow">E-CareX</div>
+    <h2 class="section-heading">Professional Solar<br><em>Maintenance</em></h2>
+    <p class="section-sub">Our dedicated solar maintenance solution designed to keep your solar power plant performing at its peak — safely, efficiently, and consistently throughout the year.</p>
+  </div>
+  <div class="maint-grid">
+    <div>
+      <p style="font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.35);margin-bottom:18px;">Services Included</p>
+      <div class="maint-services">
+        <div class="maint-row reveal"><div class="maint-icon">🧹</div><div><h4>Module Cleaning</h4><p>Professional panel cleaning to maximise solar output</p></div></div>
+        <div class="maint-row reveal"><div class="maint-icon">🔋</div><div><h4>Inverter Cleaning & Health Check</h4><p>Complete inverter servicing and diagnostics</p></div></div>
+        <div class="maint-row reveal"><div class="maint-icon">⚠️</div><div><h4>Electrical Safety Inspection</h4><p>Comprehensive electrical system safety audits</p></div></div>
+        <div class="maint-row reveal"><div class="maint-icon">📊</div><div><h4>Performance Monitoring</h4><p>Real-time tracking and performance reporting</p></div></div>
+      </div>
+    </div>
+    <div>
+      <p style="font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.35);margin-bottom:18px;">Key Benefits</p>
+      <div class="maint-benefits">
+        <div class="ben-card reveal"><div class="ben-icon">⬆️</div><h4>Increased Lifespan</h4><p>Regular care extends panel and system life significantly</p></div>
+        <div class="ben-card reveal"><div class="ben-icon">⚡</div><h4>Better Generation</h4><p>Improved monthly solar energy output</p></div>
+        <div class="ben-card reveal"><div class="ben-icon">🛡️</div><h4>Prevents Failures</h4><p>Early detection prevents costly breakdowns</p></div>
+        <div class="ben-card reveal"><div class="ben-icon">🔥</div><h4>Hotspot Detection</h4><p>Thermal scanning and hotspot prevention</p></div>
+        <div class="ben-card reveal"><div class="ben-icon">✅</div><h4>Ensures Safety</h4><p>Full electrical compliance and stable operation</p></div>
+        <div class="ben-card reveal"><div class="ben-icon">📈</div><h4>Proven Results</h4><p>Documented improvements after each care cycle</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VALUES -->
+<section id="values">
+  <div class="values-inner">
+    <div class="reveal">
+      <div class="section-eyebrow">Our Foundation</div>
+      <h2 class="section-heading">Core<br><em>Values</em></h2>
+      <div class="section-rule"></div>
+      <p class="section-sub" style="margin-top:20px;">Every project we undertake is guided by principles that define who we are and how we serve our clients.</p>
+      <div class="val-cta-box" style="margin-top:36px;">
+        <h3>Ready to Go Solar?</h3>
+        <p>Talk to our experts for a customised solar solution designed for your specific energy requirements and budget.</p>
+        <a href="#contact" class="btn-solid">Start a Conversation →</a>
+      </div>
+    </div>
+    <div>
+      <div class="values-grid">
+        <div class="val-card reveal"><div class="val-icon">🤝</div><h3>Integrity</h3><p>Honest, transparent operations across every project and partnership</p></div>
+        <div class="val-card reveal"><div class="val-icon">👥</div><h3>Respect</h3><p>Deep respect for individuals — clients, partners, and our team</p></div>
+        <div class="val-card reveal"><div class="val-icon">🌟</div><h3>Customer First</h3><p>Every decision begins and ends with our customer's best interest</p></div>
+        <div class="val-card reveal"><div class="val-icon">🏆</div><h3>Excellence</h3><p>Unrelenting passion for superior quality and performance outcomes</p></div>
+        <div class="val-card reveal"><div class="val-icon">💡</div><h3>Innovation</h3><p>Continuous improvement and adoption of breakthrough technology</p></div>
+        <div class="val-card reveal" style="background:var(--navy);border-color:var(--navy);display:flex;flex-direction:column;align-items:center;justify-content:center;">
+          <div style="font-family:'DM Serif Display',serif;font-size:42px;color:var(--orange2);">10+</div>
+          <div style="font-size:13px;color:rgba(255,255,255,0.5);margin-top:6px;">Years of Proven Solar Leadership</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BRANDS -->
+<section id="brands">
+  <div class="brands-top reveal">
+    <div class="section-eyebrow" style="justify-content:center;">Trusted Partnerships</div>
+    <h2 class="section-heading" style="text-align:center;">Associated with <em>Leading Brands</em></h2>
+    <p class="section-sub" style="margin:12px auto 0;text-align:center;">We source only from industry-leading manufacturers to ensure quality, durability, and performance.</p>
+  </div>
+  <div class="brands-grid" style="margin-top:48px;">
+    <div class="brand-row reveal"><div class="brand-bar"></div><div><strong>Long Rail</strong><span>Mounting Structure Systems</span></div></div>
+    <div class="brand-row reveal"><div class="brand-bar"></div><div><strong>Trinity</strong><span>ACDB & DCDB Electrical Panels</span></div></div>
+    <div class="brand-row reveal"><div class="brand-bar"></div><div><strong>Solis</strong><span>Grid-Tie Solar Inverters</span></div></div>
+    <div class="brand-row reveal"><div class="brand-bar"></div><div><strong>LAPP</strong><span>Premium DC Solar Cables</span></div></div>
+    <div class="brand-row reveal"><div class="brand-bar"></div><div><strong>Polycab</strong><span>AC Cables & Wiring Solutions</span></div></div>
+    <div class="brand-row reveal"><div class="brand-bar"></div><div><strong>MC4 Connector</strong><span>Solar Panel Connectors</span></div></div>
+    <div class="brand-row reveal"><div class="brand-bar"></div><div><strong>Goldi Solar</strong><span>High-Efficiency Solar Modules</span></div></div>
+    <div class="brand-row reveal"><div class="brand-bar"></div><div><strong>SolarEdge</strong><span>Smart Energy Optimization</span></div></div>
+    <div class="brand-row reveal"><div class="brand-bar"></div><div><strong>Kirloskar</strong><span>Industrial Water Pumps</span></div></div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="contact-inner">
+    <div class="reveal">
+      <div class="section-eyebrow">Get in Touch</div>
+      <h2 class="section-heading">Let's Build Your<br><em>Solar Future</em></h2>
+      <div class="section-rule"></div>
+      <div class="contact-items">
+        <div class="citem"><div class="citem-icon">🏢</div><div><h5>Registered Office</h5><p>599, Goundampalayam Road, Rayarpalayam,<br>Palldam, Tiruppur – 641664</p></div></div>
+        <div class="citem"><div class="citem-icon">🏙️</div><div><h5>Corporate Office</h5><p>155/15 F, Kalapatti Main Rd, Nehru Nagar West,<br>Coimbatore – 641048</p></div></div>
+        <div class="citem"><div class="citem-icon">📞</div><div><h5>Contact Numbers</h5><p>Sales: 938 444 1279 &nbsp;|&nbsp; Service: 89259 62009</p></div></div>
+        <div class="citem"><div class="citem-icon">✉️</div><div><h5>Email</h5><p>sales@elitepower.in &nbsp;|&nbsp; service@elitepower.in</p></div></div>
+        <div class="citem"><div class="citem-icon">📍</div><div><h5>Branch Locations</h5><div class="branch-pills"><span class="branch-pill">Coimbatore</span><span class="branch-pill">Chennai</span><span class="branch-pill">Erode</span><span class="branch-pill">Trichy</span></div></div></div>
+      </div>
+    </div>
+    <div class="contact-form reveal">
+      <h3>Request a Free Quote</h3>
+      <p class="form-sub">Fill in your details and our team will get back to you within 24 hours.</p>
+      <div class="fg-row">
+        <div class="fg"><label>Full Name</label><input type="text" placeholder="Your full name"></div>
+        <div class="fg"><label>Phone Number</label><input type="tel" placeholder="+91 XXXXX XXXXX"></div>
+      </div>
+      <div class="fg"><label>Email Address</label><input type="email" placeholder="your@email.com"></div>
+      <div class="fg"><label>Service Required</label>
+        <select>
+          <option value="" disabled selected>Select a service</option>
+          <option>Solar EPC — E-GenX</option>
+          <option>Solar Maintenance — E-CareX</option>
+          <option>Solar Retail — E-StoreX</option>
+          <option>Custom Solar Solution</option>
+        </select>
+      </div>
+      <div class="fg-row">
+        <div class="fg"><label>Project Capacity</label><input type="text" placeholder="e.g. 100 KW"></div>
+        <div class="fg"><label>Location</label><input type="text" placeholder="City / District"></div>
+      </div>
+      <div class="fg"><label>Message</label><textarea placeholder="Tell us about your energy requirements..."></textarea></div>
+      <button class="btn-solid" style="width:100%;justify-content:center;padding:14px;">Submit Enquiry →</button>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <div class="f-logo">ep<em>|</em>Elite</div>
+      <p>India's trusted solar energy company delivering EPC, AMC, and retail services for over a decade.</p>
+      <div class="footer-sub-brands">
+        <span class="f-sub">E-Gen<b>X</b></span>
+        <span class="f-sub">E-Care<b>X</b></span>
+        <span class="f-sub">E-Store<b>X</b></span>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h5>Services</h5>
+      <ul>
+        <li><a href="#services">Solar EPC</a></li>
+        <li><a href="#maintenance">Solar AMC</a></li>
+        <li><a href="#services">Solar Retail</a></li>
+        <li><a href="#services">Custom Solar</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>Company</h5>
+      <ul>
+        <li><a href="#about">About Us</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#values">Core Values</a></li>
+        <li><a href="#brands">Partners</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>Contact</h5>
+      <ul>
+        <li><a href="tel:9384441279">938 444 1279</a></li>
+        <li><a href="mailto:sales@elitepower.in">sales@elitepower.in</a></li>
+        <li><a href="https://elitepower.in" target="_blank">www.elitepower.in</a></li>
+        <li><a href="#contact">Get a Quote</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2025 Elite Power Corporations. All rights reserved.</p>
+    <a href="https://www.elitepower.in" target="_blank">www.elitepower.in</a>
+  </div>
+</footer>
+
+<script>
+// Scroll reveal
+const io = new IntersectionObserver((entries) => {
+  entries.forEach((e, i) => {
+    if (e.isIntersecting) {
+      setTimeout(() => e.target.classList.add('in'), 0);
+    }
+  });
+}, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+
+document.querySelectorAll('.reveal').forEach((el, i) => {
+  el.style.transitionDelay = (i % 5) * 0.07 + 's';
+  io.observe(el);
+});
+
+// Nav scroll shadow + active
+const nav = document.getElementById('main-nav');
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('scrolled', window.scrollY > 60);
+  // Update active nav link
+  document.querySelectorAll('section[id]').forEach(sec => {
+    const rect = sec.getBoundingClientRect();
+    if (rect.top <= 90 && rect.bottom > 90) {
+      document.querySelectorAll('.nav-menu a').forEach(a => {
+        a.classList.toggle('active', a.getAttribute('href') === '#' + sec.id);
+      });
+    }
+  });
+});
+
+// Filter buttons
+function setFilter(btn) {
+  document.querySelectorAll('.flt').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+}
+
+// Smooth scroll for all nav links
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', function(e) {
+    const target = document.querySelector(this.getAttribute('href'));
+    if (target) {
+      e.preventDefault();
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  });
+});
+</script>
+</body>
+</html>
